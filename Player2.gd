@@ -1,4 +1,5 @@
 extends "res://scripts/PlayerBase.gd"
+# warning-ignore:unused_signal
 signal hit_player_2
 
 
@@ -25,7 +26,12 @@ func _process(_delta):
 	velocity.y = velocity.y + GRAVITY
 	
 	if Input.is_action_just_pressed("pl_2_up") and is_on_floor():
+		$PlayerSprite.play("prejump")
 		velocity.y = JUMPFORCE
+		
+	if !is_on_floor():
+		$PlayerSprite.play('jump')
+		
 	
 	velocity = move_and_slide(velocity, Vector2.UP)
 	velocity.x = lerp(velocity.x ,0, 0.2)
