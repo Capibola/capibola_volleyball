@@ -7,6 +7,15 @@ export (int) var engine_thrust = 0
 var reset = false
 var thrust = Vector2()
 
+func play(index):
+	if index == 0:
+		$Tome.play()
+	elif index == 1:
+		$Ai.play()		
+	else:
+		$AiMamae.play()
+
+var rng = RandomNumberGenerator.new()
 
 func _ready():
 	if GlobalScore.player_turn == 2:
@@ -33,7 +42,8 @@ func _integrate_forces(state):
 		
 func _on_fallzone_pl1_body_entered(_body):
 	if _body is RigidBody2D:
-		$Goal.play()
+		var number = rng.randi_range(0,2)
+		play(number)
 		GlobalScore.player_turn = 2
 		emit_signal("fall_pl_1")
 		reset = true
@@ -41,7 +51,8 @@ func _on_fallzone_pl1_body_entered(_body):
 		
 func _on_fallzone_pl2_body_entered(_body):
 	if _body is RigidBody2D:
-		$Goal.play()
+		var number = rng.randi_range(0,2)
+		play(number)
 		emit_signal("fall_pl_2")
 		GlobalScore.player_turn = 1
 		reset = true
