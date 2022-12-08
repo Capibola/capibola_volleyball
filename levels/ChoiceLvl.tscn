@@ -1,9 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://sprites/level_icon/stage_1.png" type="Texture" id=1]
 [ext_resource path="res://levels/ChoiceLvl.gd" type="Script" id=2]
 [ext_resource path="res://audio/reflections.mp3" type="AudioStream" id=3]
 [ext_resource path="res://Font/PressStart2P-Regular.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=2]
+size = 160
+font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
@@ -19,12 +23,23 @@ margin_bottom = -3.77979
 script = ExtResource( 2 )
 
 [node name="TextureButton" type="TextureButton" parent="."]
-margin_left = 262.74
-margin_top = 69.7798
-margin_right = 2182.74
-margin_bottom = 1149.78
+margin_left = 186.74
+margin_top = 22.7798
+margin_right = 2659.74
+margin_bottom = 1414.78
 rect_scale = Vector2( 0.260297, 0.252226 )
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 1 )
+expand = true
+
+[node name="Label" type="Label" parent="TextureButton"]
+margin_left = 787.562
+margin_top = 190.305
+margin_right = 1747.56
+margin_bottom = 350.305
+custom_fonts/font = SubResource( 2 )
+text = "Play ▶️"
+align = 1
 
 [node name="Label" type="Label" parent="."]
 margin_left = 118.74
