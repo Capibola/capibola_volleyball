@@ -12,8 +12,15 @@ func play(index):
 		$Tome.play()
 	elif index == 1:
 		$Ai.play()		
-	else:
+	elif index ==2:
 		$AiMamae.play()
+	elif index == 3:
+		$Ahn.play()
+	elif index == 4:
+		$Cavalo.play()
+	elif index == 5:
+		$Goofy.play()
+	
 
 var rng = RandomNumberGenerator.new()
 
@@ -42,7 +49,7 @@ func _integrate_forces(state):
 		
 func _on_fallzone_pl1_body_entered(_body):
 	if _body is RigidBody2D:
-		var number = rng.randi_range(0,2)
+		var number = rng.randi_range(0,6)
 		play(number)
 		GlobalScore.player_turn = 2
 		emit_signal("fall_pl_1")
@@ -51,7 +58,7 @@ func _on_fallzone_pl1_body_entered(_body):
 		
 func _on_fallzone_pl2_body_entered(_body):
 	if _body is RigidBody2D:
-		var number = rng.randi_range(0,2)
+		var number = rng.randi_range(0,6)
 		play(number)
 		emit_signal("fall_pl_2")
 		GlobalScore.player_turn = 1

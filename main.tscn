@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://sprites/ground.png" type="Texture" id=1]
 [ext_resource path="res://Spatial.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://audio/glade-wind-birds-trees.wav" type="AudioStream" id=10]
 [ext_resource path="res://sprites/waves.png" type="Texture" id=11]
 [ext_resource path="res://sprites/smallRocks.png" type="Texture" id=12]
+[ext_resource path="res://audio/background-play-song.mp3" type="AudioStream" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 736.9, 62.9 )
@@ -132,6 +133,11 @@ shape = SubResource( 5 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
 volume_db = -9.941
+
+[node name="BackGround" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+volume_db = -10.0
+autoplay = true
 
 [connection signal="body_entered" from="fallzone_pl1" to="Ball" method="_on_fallzone_pl1_body_entered"]
 [connection signal="body_entered" from="fallzone_pl2" to="Ball" method="_on_fallzone_pl2_body_entered"]
