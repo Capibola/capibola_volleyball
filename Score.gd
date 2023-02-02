@@ -20,4 +20,4 @@ func _on_Ball_fall_pl_2():
 
 func _verifyEndGame():
 	if(GlobalScore.score_pl_1 == 7 || GlobalScore.score_pl_2 == 7):
-		get_tree().change_scene("res://start.tscn")
+		get_tree().change_scene("res://EndGame.tscn")
