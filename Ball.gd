@@ -67,8 +67,3 @@ func _on_fallzone_pl2_body_entered(_body):
 
 func _on_Ball_body_entered(_body):
 	$Bit.play()
-
-
-func _on_Ball_body_entered_lvl2(body):
-	$Bit.play()
-
